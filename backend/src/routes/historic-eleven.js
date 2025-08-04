@@ -11,9 +11,9 @@ router.get('/historic-eleven', async (req, res) => {
 
         let rows;
         if (idTeam) {
-            [rows] = await connection.query('select img, year, description from historic_eleven where idTeam = ? order by year asc', [idTeam]);
+            [rows] = await connection.query('select idEleven, img, year from historic_eleven where idTeam = ? order by year asc', [idTeam]);
         } else {
-            [rows] = await connection.query('select img, year, description from historic_eleven order by year asc');
+            [rows] = await connection.query('select idEleven, img, year from historic_eleven order by year asc');
         }    
 
         res.json(rows);
@@ -31,7 +31,7 @@ router.post('/historic-eleven', async (req, res) => {
 
         image = (idTeam) + 'Team' + (year) + '.png'; // Assuming image is derived from name''
 
-        const [result] = await connection.query('INSERT INTO historic_eleven (idTeam, description, year, img) VALUES (?, ?, ?, ?)', [idTeam, description, year, image]);
+        const [result] = await connection.query('INSERT INTO historic_eleven (idTeam, year, img) VALUES (?, ?, ?)', [idTeam, year, image]);
 
         res.status(201).json({ id: result.insertId, idTeam, description, year, image });
     } catch (error) {

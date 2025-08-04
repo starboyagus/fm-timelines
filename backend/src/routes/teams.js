@@ -7,7 +7,7 @@ router.get('/teams', async (req, res) => {
     try {
         connection = await db.getConnection();
 
-        const [rows] = await connection.query('SELECT idTeam, name, year, img, date_created FROM teams ORDER BY date_created DESC');
+        const [rows] = await connection.query('SELECT idTeam, name, year, img, color, date_created FROM teams ORDER BY date_created DESC');
 
         res.json(rows);
     } catch (error) {
