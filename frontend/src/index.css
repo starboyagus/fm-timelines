@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+
+@theme {
+  --shadow1:  box-shadow: 0px 0px 22px -7px rgba(1,1,1,0.75);
+
+}
+
+:root {
+  --accent: #1e40af;
+  --white: #efedf3;
+  --black: #09080b;
+  --gray: #2e2c33;
+
+
+  font-family: inter;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #efedf3;
+  background-color: #09080b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
